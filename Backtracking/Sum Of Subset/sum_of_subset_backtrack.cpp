@@ -21,15 +21,12 @@ void sosp(int * arr, int m, int size, int weight, int total,int k, int *arr1)
             cout << arr1[i] << " "; 
             arr1[i] = 1;
         }
-        cout << endl;
         return;
     }
-
     if(k == size)
     {
         return;
     }
-    
     arr1[k] = 1;
     sosp(arr, m, size, weight+arr[k], total - arr[k], k+1, arr1);
     arr1[k] = 0;
