@@ -1,17 +1,10 @@
 # include <iostream>
 using namespace std;
 
-bool check(int weight, int a, int m)
-{
-    if(weight+a > m)
-    {
-        return false;
-    }
-    return true;
-}
-
+static int count = 0;
 void sosp(int * arr, int m, int size, int weight, int total,int k, int *arr1)
 {
+	count++;
     if(weight == m)
     {
         cout << endl;
@@ -23,7 +16,7 @@ void sosp(int * arr, int m, int size, int weight, int total,int k, int *arr1)
         }
         return;
     }
-    if(k == size)
+    if(weight + arr[k] > m || k == size)
     {
         return;
     }
@@ -31,6 +24,7 @@ void sosp(int * arr, int m, int size, int weight, int total,int k, int *arr1)
     sosp(arr, m, size, weight+arr[k], total - arr[k], k+1, arr1);
     arr1[k] = 0;
     sosp(arr, m, size, weight, total - arr[k], k+1,arr1);
+    
     
 }
 
@@ -47,6 +41,7 @@ int main()
     }
     cout << endl;
     int weight = 0;
-    int arr1[6];
+    int arr1[6] = {0};
     sosp(arr,m,size,weight,total,0,arr1);
+    cout << count;
 }
