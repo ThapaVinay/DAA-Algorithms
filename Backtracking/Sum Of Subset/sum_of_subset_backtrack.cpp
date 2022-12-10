@@ -1,7 +1,5 @@
 # include <iostream>
 using namespace std;
-
-static int count = 0;
 void sosp(int * arr, int m, int size, int weight, int total,int k, int *arr1)
 {
 	count++;
@@ -43,5 +41,4 @@ int main()
     int weight = 0;
     int arr1[6] = {0};
     sosp(arr,m,size,weight,total,0,arr1);
-    cout << count;
 }
